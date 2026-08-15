@@ -4,152 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MyLife</title>
+    <title>MY LIFE</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="app">
+<div class="container">
 
     <header>
-        <h1>MyLife</h1>
+        <h1>MY LIFE</h1>
         <p id="today"></p>
     </header>
 
+    <main>
 
-    <!-- 今日の状態 -->
+        <section class="card">
+            <h2>今日の状態</h2>
 
-    <section class="card">
-
-        <h2>今日の状態</h2>
-
-        <label>
-            睡眠
-            <input type="number" id="sleep" placeholder="時間">
-        </label>
-
-        <label>
-            体調
-            <input type="number" id="condition" min="1" max="10" placeholder="1〜10">
-        </label>
-
-        <label>
-            気分
-            <input type="number" id="mood" min="1" max="10" placeholder="1〜10">
-        </label>
-
-    </section>
-
-
-    <!-- 今日のタスク -->
-
-    <section class="card">
-
-        <h2>今日のタスク</h2>
-
-        <div id="tasks">
-
-            <label class="task">
-                <input type="checkbox">
-                <span>掃除</span>
+            <label>
+                睡眠時間
+                <input type="number" id="sleep" min="0" max="24" step="0.5" placeholder="例：7">
             </label>
 
-            <label class="task">
-                <input type="checkbox">
-                <span>ジム</span>
+            <label>
+                体調
+                <input type="number" id="health" min="1" max="10" placeholder="1〜10">
             </label>
 
-            <label class="task">
-                <input type="checkbox">
-                <span>転職活動</span>
+            <label>
+                気分
+                <input type="number" id="mood" min="1" max="10" placeholder="1〜10">
+            </label>
+        </section>
+
+
+        <section class="card">
+            <h2>今日やったこと</h2>
+
+            <textarea
+                id="done"
+                placeholder="今日やったことを書いてください">
+            </textarea>
+        </section>
+
+
+        <section class="card">
+            <h2>お金</h2>
+
+            <label>
+                今日使った金額
+                <input type="number" id="money" min="0" placeholder="円">
             </label>
 
-        </div>
-
-    </section>
-
-
-    <!-- お金 -->
-
-    <section class="card">
-
-        <h2>今日のお金</h2>
-
-        <label>
-            今日使った金額
-            <input type="number" id="money" placeholder="円">
-        </label>
-
-    </section>
+            <label>
+                大きな支出
+                <input type="text" id="bigExpense" placeholder="あれば入力">
+            </label>
+        </section>
 
 
-    <!-- 日記 -->
+        <section class="card">
+            <h2>今日よかったこと</h2>
 
-    <section class="card">
-
-        <h2>今日の記録</h2>
-
-        <textarea
-            id="diary"
-            placeholder="今日あったこと、考えたことなど">
-        </textarea>
-
-    </section>
+            <textarea
+                id="good"
+                placeholder="今日よかったこと">
+            </textarea>
+        </section>
 
 
-    <!-- 良かったこと -->
+        <section class="card">
+            <h2>今日の反省</h2>
 
-    <section class="card">
-
-        <h2>今日よかったこと</h2>
-
-        <textarea
-            id="good"
-            placeholder="今日よかったこと">
-        </textarea>
-
-    </section>
+            <textarea
+                id="reflection"
+                placeholder="今日の反省">
+            </textarea>
+        </section>
 
 
-    <!-- 反省 -->
+        <section class="card">
+            <h2>明日やること</h2>
 
-    <section class="card">
-
-        <h2>今日の反省</h2>
-
-        <textarea
-            id="reflection"
-            placeholder="改善したいこと">
-        </textarea>
-
-    </section>
+            <textarea
+                id="tomorrow"
+                placeholder="明日やること">
+            </textarea>
+        </section>
 
 
-    <button id="saveButton">
-        今日の記録を保存
-    </button>
+        <section class="card">
+            <h2>AIに相談したいこと</h2>
+
+            <textarea
+                id="aiQuestion"
+                placeholder="AIに相談したいこと">
+            </textarea>
+        </section>
 
 
-    <section class="card ai-card">
-
-        <h2>AIに相談</h2>
-
-        <p>
-            今日の状態をAIに分析してもらう
-        </p>
-
-        <button id="aiButton">
-            AIに相談する
+        <button id="saveButton">
+            保存する
         </button>
 
-    </section>
+        <p id="status"></p>
+
+    </main>
 
 </div>
 
-
-<script src="app.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
