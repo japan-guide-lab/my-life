@@ -2,587 +2,740 @@
     box-sizing: border-box;
 }
 
-:root {
-    --bg: #f4f4f1;
-    --card: #ffffff;
-    --text: #171717;
-    --muted: #777;
-    --light: #999;
-    --border: #e5e5e2;
-    --accent: #111;
-    --success: #26734d;
-    --danger: #a33;
+
+html {
+    background: #f5f5f7;
 }
 
+
 body {
+
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
 
     font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
-        "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans",
-        "Yu Gothic",
-        Meiryo,
         sans-serif;
 
+    background: #f5f5f7;
+
+    color: #1d1d1f;
+
     line-height: 1.6;
+
 }
 
 
-/* =========================
-   Layout
-========================= */
+button,
+input,
+textarea {
+    font: inherit;
+}
 
-.container {
+
+.app {
+
     width: 100%;
+
     max-width: 720px;
 
     margin: 0 auto;
 
-    padding:
-        32px 20px
-        60px;
+    padding-bottom: 100px;
+
 }
 
 
 /* =========================
-   Header
+   HEADER
 ========================= */
 
-.hero {
-    padding:
-        10px 4px
-        34px;
+.app-header {
+
+    padding: 28px 20px 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
 }
 
-.hero-label {
-    font-size: 11px;
+
+.eyebrow {
+
+    margin: 0 0 4px;
+
+    font-size: 12px;
+
     font-weight: 700;
 
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
 
     color: #888;
 
-    margin-bottom: 8px;
 }
 
-.hero h1 {
+
+.app-header h1 {
+
     margin: 0;
 
-    font-size: 42px;
-    line-height: 1;
+    font-size: 30px;
 
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
+
 }
 
-.hero #today {
-    margin:
-        12px 0 0;
 
-    font-size: 15px;
-    font-weight: 600;
-
-    color: #555;
-}
-
-.hero-description {
-    margin:
-        10px 0 0;
+.today {
 
     font-size: 13px;
 
     color: #888;
+
 }
 
 
 /* =========================
-   Cards
+   MAIN
+========================= */
+
+.main-content {
+
+    padding: 0 16px;
+
+}
+
+
+/* =========================
+   CARD
 ========================= */
 
 .card {
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 24px;
-
-    margin-bottom: 16px;
-
-    box-shadow:
-        0 2px 12px
-        rgba(0, 0, 0, 0.025);
-}
-
-
-/* =========================
-   Section Heading
-========================= */
-
-.section-heading {
-    margin-bottom: 24px;
-}
-
-.section-heading > div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.section-number {
-    font-size: 11px;
-    font-weight: 700;
-
-    color: #999;
-
-    letter-spacing: 0.08em;
-}
-
-.section-heading h2 {
-    margin: 0;
-
-    font-size: 20px;
-    line-height: 1.3;
-
-    letter-spacing: -0.02em;
-}
-
-.section-heading p {
-    margin:
-        7px 0 0 29px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-/* =========================
-   Fields
-========================= */
-
-.field {
-    margin-bottom: 25px;
-}
-
-.field:last-child {
-    margin-bottom: 0;
-}
-
-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    margin-bottom: 8px;
-
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.required,
-.optional {
-    font-size: 10px;
-
-    font-weight: 600;
-
-    color: #999;
-
-    background: #f3f3f1;
-
-    border-radius: 5px;
-
-    padding: 2px 6px;
-}
-
-
-/* =========================
-   Inputs
-========================= */
-
-input,
-textarea {
-    width: 100%;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 11px;
-
-    background: #fafaf9;
-
-    color: var(--text);
-
-    padding: 13px 14px;
-
-    font-family: inherit;
-
-    font-size: 16px;
-
-    outline: none;
-
-    transition:
-        border-color 0.15s,
-        background 0.15s,
-        box-shadow 0.15s;
-}
-
-input:focus,
-textarea:focus {
-    border-color: #999;
 
     background: #fff;
 
+    border-radius: 18px;
+
+    padding: 22px;
+
+    margin-bottom: 14px;
+
     box-shadow:
-        0 0 0 3px
-        rgba(0, 0, 0, 0.04);
-}
+        0 2px 10px rgba(
+            0,
+            0,
+            0,
+            0.04
+        );
 
-input::placeholder,
-textarea::placeholder {
-    color: #aaa;
-}
-
-textarea {
-    display: block;
-
-    min-height: 125px;
-
-    resize: vertical;
-
-    line-height: 1.7;
 }
 
 
-/* =========================
-   Unit Input
-========================= */
+.section-header {
 
-.input-with-unit {
     display: flex;
 
-    align-items: center;
+    justify-content: space-between;
 
-    gap: 10px;
-}
-
-.input-with-unit input {
-    flex: 1;
-}
-
-.input-with-unit span {
-    color: #666;
-
-    font-size: 14px;
-
-    white-space: nowrap;
 }
 
 
-/* =========================
-   Hint
-========================= */
+.section-label {
 
-.hint {
-    margin:
-        7px 0 0;
-
-    color: var(--light);
+    margin: 0 0 4px;
 
     font-size: 11px;
 
-    line-height: 1.5;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+
+    color: #999;
+
+}
+
+
+.card h2 {
+
+    margin: 0 0 14px;
+
+    font-size: 20px;
+
+    letter-spacing: -0.02em;
+
+}
+
+
+.description {
+
+    margin: -4px 0 14px;
+
+    color: #888;
+
+    font-size: 13px;
+
 }
 
 
 /* =========================
-   Score
+   PERIOD
 ========================= */
 
-.score-grid {
+.period-card h2 {
+
+    margin-top: 4px;
+
+    margin-bottom: 5px;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary-grid {
+
     display: grid;
 
     grid-template-columns:
-        repeat(10, 1fr);
+        repeat(2, 1fr);
 
-    gap: 5px;
+    gap: 10px;
+
 }
 
-.score-grid button {
+
+.summary-item {
+
+    background: #f7f7f8;
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+}
+
+
+.summary-label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.summary-value {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 3px;
+
+}
+
+
+.summary-item strong {
+
+    font-size: 26px;
+
+    letter-spacing: -0.04em;
+
+}
+
+
+.summary-value span {
+
+    color: #888;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================
+   PLOTLY
+========================= */
+
+.plotly-chart {
+
     width: 100%;
 
-    padding: 9px 0;
+    height: 250px;
 
-    border:
-        1px solid var(--border);
+    min-width: 0;
 
-    border-radius: 8px;
+}
 
-    background: #fafaf9;
 
-    color: #555;
+/*
+   Plotlyの内部SVGが
+   スマホ画面からはみ出さないようにする
+*/
+
+.plotly-chart .js-plotly-plot,
+.plotly-chart .plot-container,
+.plotly-chart .svg-container {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+}
+
+
+/* =========================
+   TRENDS
+========================= */
+
+.trend-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.trend-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 15px;
+
+    background: #f7f7f8;
+
+    border-radius: 12px;
+
+}
+
+
+.trend-item span {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+.trend-item strong {
+
+    font-size: 14px;
+
+    text-align: right;
+
+}
+
+
+/* =========================
+   TEXT LIST
+========================= */
+
+.text-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.text-list-item {
+
+    padding: 14px;
+
+    background: #f7f7f8;
+
+    border-radius: 12px;
+
+}
+
+
+.text-list-date {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #888;
+
+    font-size: 12px;
+
+}
+
+
+.text-list-item p {
+
+    margin: 0;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================
+   RECORD LIST
+========================= */
+
+.record-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.record-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 13px 0;
+
+    border-bottom:
+        1px solid #eeeeee;
+
+}
+
+
+.record-item:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.record-exists {
+
+    color: #222;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.record-missing {
+
+    color: #aaa;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+
+    min-height: 22px;
+
+    margin: 10px 0;
+
+    text-align: center;
+
+    color: #777;
 
     font-size: 13px;
 
     font-weight: 600;
 
-    cursor: pointer;
-
-    transition:
-        all 0.15s;
-}
-
-.score-grid button:hover {
-    border-color: #aaa;
-}
-
-.score-grid button.selected {
-    background: #111;
-
-    color: white;
-
-    border-color: #111;
 }
 
 
 /* =========================
-   Task List
+   BOTTOM NAV
 ========================= */
 
-.task-input {
+.bottom-nav {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 100%;
+
+    max-width: 720px;
+
+    height: 72px;
+
     display: flex;
+
+    justify-content: space-around;
 
     align-items: center;
 
-    gap: 10px;
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.94
+        );
 
-    margin-bottom: 10px;
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    border-top:
+        1px solid #e5e5e5;
+
+    z-index: 100;
+
 }
 
-.task-input > span {
-    width: 24px;
+
+.nav-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 3px;
+
+    text-decoration: none;
 
     color: #999;
 
     font-size: 11px;
 
-    font-weight: 700;
-}
-
-.task-input input {
-    flex: 1;
 }
 
 
-/* =========================
-   Save
-========================= */
+.nav-item.active {
 
-.save-area {
-    padding:
-        8px 0
-        20px;
-}
-
-.save-button {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    width: 100%;
-
-    border: none;
-
-    border-radius: 14px;
-
-    padding: 17px;
-
-    background: #111;
-
-    color: white;
-
-    font-family: inherit;
-
-    font-size: 16px;
+    color: #1d1d1f;
 
     font-weight: 700;
 
-    cursor: pointer;
-
-    transition:
-        transform 0.15s,
-        opacity 0.15s;
 }
 
-.save-button:hover {
-    opacity: 0.9;
-}
 
-.save-button:active {
-    transform: scale(0.98);
-}
+.nav-icon {
 
-.save-button:disabled {
-    opacity: 0.5;
+    font-size: 22px;
 
-    cursor: wait;
-}
+    line-height: 1;
 
-.save-icon {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 22px;
-    height: 22px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.15);
-
-    font-size: 12px;
 }
 
 
 /* =========================
-   Status
+   MOBILE
 ========================= */
 
-.status {
-    min-height: 24px;
-
-    margin:
-        12px 0 0;
-
-    text-align: center;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    color: #777;
-}
-
-.status.success {
-    color: var(--success);
-}
-
-.status.error {
-    color: var(--danger);
-}
+@media (max-width: 500px) {
 
 
-/* =========================
-   Footer
-========================= */
+    .app {
 
-footer {
-    text-align: center;
+        padding-bottom: 90px;
 
-    padding:
-        25px 0
-        10px;
-
-    color: #aaa;
-}
-
-footer p {
-    margin: 0;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.15em;
-}
-
-footer span {
-    display: block;
-
-    margin-top: 3px;
-
-    font-size: 10px;
-}
+    }
 
 
-/* =========================
-   Mobile
-========================= */
+    .app-header {
 
-@media (max-width: 600px) {
-
-    .container {
         padding:
-            20px 14px
-            45px;
+            22px
+            16px
+            18px;
+
     }
 
-    .hero {
+
+    .app-header h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .main-content {
+
         padding:
-            10px 4px
-            26px;
+            0 12px;
+
     }
 
-    .hero h1 {
-        font-size: 36px;
-    }
 
     .card {
-        padding: 20px 17px;
+
+        padding: 18px;
 
         border-radius: 16px;
+
     }
 
-    .section-heading h2 {
-        font-size: 18px;
+
+    .summary-grid {
+
+        gap: 8px;
+
     }
 
-    .section-heading p {
-        margin-left: 27px;
+
+    .summary-item {
+
+        padding: 13px;
+
     }
 
-    .score-grid {
-        gap: 4px;
+
+    .summary-item strong {
+
+        font-size: 22px;
+
     }
 
-    .score-grid button {
-        padding: 9px 0;
 
-        font-size: 12px;
+    .plotly-chart {
+
+        height: 230px;
+
+        margin-left: -4px;
+
+        width:
+            calc(100% + 8px);
+
     }
 
-    textarea {
-        min-height: 115px;
+
+    .trend-item {
+
+        padding:
+            13px;
+
     }
+
+
+    .trend-item strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .text-list-item {
+
+        padding: 13px;
+
+    }
+
+
+    .bottom-nav {
+
+        height: 68px;
+
+    }
+
 }
-
-
 /* =========================
-   Very Small Phones
+   AI CHAT
 ========================= */
 
-@media (max-width: 380px) {
+.chat {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-height: 55vh;
+    overflow-y: auto;
+    padding: 4px 2px 10px;
+}
 
-    .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+.message {
+    max-width: 88%;
+}
 
-    .card {
-        padding:
-            18px 14px;
-    }
+.message.ai {
+    align-self: flex-start;
+}
 
-    .score-grid button {
-        font-size: 11px;
-    }
+.message.user {
+    align-self: flex-end;
+}
+
+.message-label {
+    margin-bottom: 5px;
+    padding: 0 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #999;
+}
+
+.message-content {
+    padding: 13px 15px;
+    border-radius: 16px;
+    background: #f5f5f7;
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 1.7;
+}
+
+.message.user .message-content {
+    background: #1d1d1f;
+    color: #fff;
+}
+
+.chat-input-area {
+    margin-top: 12px;
+}
+
+.chat-input-area textarea {
+    min-height: 110px;
+    margin-bottom: 10px;
+}
+
+.ai-card {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f6f6fa
+        );
 }

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MY LIFE - AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- HEADER -->
+
+    <header class="app-header">
+
+        <div>
+
+            <p class="eyebrow">
+                MY LIFE
+            </p>
+
+            <h1>
+                AI
+            </h1>
+
+        </div>
+
+
+        <div class="today">
+
+            <span id="today"></span>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="main-content">
+
+
+        <!-- AI INTRO -->
+
+        <section class="card ai-card">
+
+            <p class="section-label">
+                AI ASSISTANT
+            </p>
+
+            <h2>
+                なんでも相談してください
+            </h2>
+
+            <p class="description">
+                今日の出来事、人生、仕事、目標、
+                悩みなどについてAIと対話できます。
+            </p>
+
+        </section>
+
+
+
+        <!-- CHAT -->
+
+        <section class="card">
+
+            <div
+                id="chat"
+                class="chat"
+            >
+
+                <div class="message ai">
+
+                    <div class="message-label">
+                        MY LIFE AI
+                    </div>
+
+                    <div class="message-content">
+
+                        こんにちは。<br>
+                        今日のことでも、人生についてでも、
+                        気軽に相談してください。
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INPUT -->
+
+            <div class="chat-input-area">
+
+                <textarea
+                    id="aiInput"
+                    placeholder="AIに相談したいことを書いてください..."
+                    rows="4"
+                ></textarea>
+
+
+                <button
+                    id="sendButton"
+                    class="save-button"
+                >
+                    AIに送信
+                </button>
+
+
+                <p
+                    id="status"
+                    class="status"
+                ></p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+
+        <a
+            href="index.html"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                ＋
+            </span>
+
+            <span>
+                今日
+            </span>
+
+        </a>
+
+
+        <a
+            href="analysis.html"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                ◌
+            </span>
+
+            <span>
+                分析
+            </span>
+
+        </a>
+
+
+        <a
+            href="ai.html"
+            class="nav-item active"
+        >
+
+            <span class="nav-icon">
+                ✦
+            </span>
+
+            <span>
+                AI
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+</div>
+
+
+<script src="ai.js"></script>
+
+</body>
+
+</html>

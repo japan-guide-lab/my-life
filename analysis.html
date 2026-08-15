@@ -17,9 +17,6 @@
         href="style.css"
     >
 
-    <!-- Plotly -->
-    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-
 </head>
 
 
@@ -28,9 +25,7 @@
 <div class="app">
 
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <!-- HEADER -->
 
     <header class="app-header">
 
@@ -57,16 +52,10 @@
 
 
 
-    <!-- =========================
-         MAIN
-    ========================== -->
-
     <main class="main-content">
 
 
-        <!-- =========================
-             PERIOD
-        ========================== -->
+        <!-- 期間 -->
 
         <section class="card period-card">
 
@@ -87,9 +76,7 @@
 
 
 
-        <!-- =========================
-             SUMMARY
-        ========================== -->
+        <!-- サマリー -->
 
         <section class="card">
 
@@ -119,17 +106,13 @@
                         記録日数
                     </span>
 
-                    <div class="summary-value">
+                    <strong id="recordCount">
+                        -
+                    </strong>
 
-                        <strong id="recordCount">
-                            -
-                        </strong>
-
-                        <span>
-                            / 7日
-                        </span>
-
-                    </div>
+                    <span>
+                        / 7日
+                    </span>
 
                 </div>
 
@@ -140,17 +123,13 @@
                         平均睡眠
                     </span>
 
-                    <div class="summary-value">
+                    <strong id="averageSleep">
+                        -
+                    </strong>
 
-                        <strong id="averageSleep">
-                            -
-                        </strong>
-
-                        <span>
-                            時間
-                        </span>
-
-                    </div>
+                    <span>
+                        時間
+                    </span>
 
                 </div>
 
@@ -161,17 +140,13 @@
                         平均体調
                     </span>
 
-                    <div class="summary-value">
+                    <strong id="averageHealth">
+                        -
+                    </strong>
 
-                        <strong id="averageHealth">
-                            -
-                        </strong>
-
-                        <span>
-                            /10
-                        </span>
-
-                    </div>
+                    <span>
+                        /10
+                    </span>
 
                 </div>
 
@@ -182,17 +157,13 @@
                         平均気分
                     </span>
 
-                    <div class="summary-value">
+                    <strong id="averageMood">
+                        -
+                    </strong>
 
-                        <strong id="averageMood">
-                            -
-                        </strong>
-
-                        <span>
-                            /10
-                        </span>
-
-                    </div>
+                    <span>
+                        /10
+                    </span>
 
                 </div>
 
@@ -203,9 +174,7 @@
 
 
 
-        <!-- =========================
-             MOOD
-        ========================== -->
+        <!-- 気分 -->
 
         <section class="card">
 
@@ -228,16 +197,14 @@
 
             <div
                 id="moodChart"
-                class="plotly-chart"
+                class="chart"
             ></div>
 
         </section>
 
 
 
-        <!-- =========================
-             SLEEP
-        ========================== -->
+        <!-- 睡眠 -->
 
         <section class="card">
 
@@ -260,16 +227,14 @@
 
             <div
                 id="sleepChart"
-                class="plotly-chart"
+                class="chart"
             ></div>
 
         </section>
 
 
 
-        <!-- =========================
-             TRENDS
-        ========================== -->
+        <!-- 傾向 -->
 
         <section class="card">
 
@@ -299,9 +264,7 @@
 
 
 
-        <!-- =========================
-             GOOD
-        ========================== -->
+        <!-- 良かったこと -->
 
         <section class="card">
 
@@ -331,9 +294,7 @@
 
 
 
-        <!-- =========================
-             REFLECTION
-        ========================== -->
+        <!-- 反省 -->
 
         <section class="card">
 
@@ -363,9 +324,7 @@
 
 
 
-        <!-- =========================
-             RECORDS
-        ========================== -->
+        <!-- 記録一覧 -->
 
         <section class="card">
 
@@ -395,9 +354,7 @@
 
 
 
-        <!-- =========================
-             STATUS
-        ========================== -->
+        <!-- STATUS -->
 
         <p
             id="status"
@@ -411,9 +368,7 @@
 
 
 
-    <!-- =========================
-         BOTTOM NAV
-    ========================== -->
+    <!-- BOTTOM NAV -->
 
     <nav class="bottom-nav">
 
@@ -471,6 +426,11 @@
 
 </div>
 
+
+<script
+    src="https://cdn.plot.ly/plotly-3.7.0.min.js"
+    charset="utf-8"
+></script>
 
 <script src="analysis.js"></script>
 
