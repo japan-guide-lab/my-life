@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color" content="#111111">
+
     <title>MY LIFE</title>
 
     <link rel="stylesheet" href="style.css">
@@ -13,107 +15,402 @@
 
 <div class="container">
 
-    <header>
+    <!-- Header -->
+    <header class="hero">
+
+        <div class="hero-label">
+            DAILY LOG
+        </div>
+
         <h1>MY LIFE</h1>
+
         <p id="today"></p>
+
+        <p class="hero-description">
+            今日を振り返り、明日を少し良くする。
+        </p>
+
     </header>
+
 
     <main>
 
+        <!-- 今日の状態 -->
         <section class="card">
-            <h2>今日の状態</h2>
 
-            <label>
-                睡眠時間
-                <input type="number" id="sleep" min="0" max="24" step="0.5" placeholder="例：7">
-            </label>
+            <div class="section-heading">
+                <div>
+                    <span class="section-number">01</span>
+                    <h2>今日の状態</h2>
+                </div>
 
-            <label>
-                体調
-                <input type="number" id="health" min="1" max="10" placeholder="1〜10">
-            </label>
+                <p>
+                    今日の自分の状態を記録します。
+                </p>
+            </div>
 
-            <label>
-                気分
-                <input type="number" id="mood" min="1" max="10" placeholder="1〜10">
-            </label>
+
+            <!-- 睡眠 -->
+            <div class="field">
+
+                <label for="sleep">
+                    睡眠時間
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="sleep"
+                        min="0"
+                        max="24"
+                        step="0.5"
+                        inputmode="decimal"
+                        placeholder="例：7.5"
+                    >
+
+                    <span>時間</span>
+
+                </div>
+
+                <p class="hint">
+                    昨夜から今日起きるまでのおおよその睡眠時間
+                </p>
+
+            </div>
+
+
+            <!-- 体調 -->
+            <div class="field">
+
+                <label>
+                    体調
+                    <span class="required">1〜10</span>
+                </label>
+
+                <div class="score-grid" id="healthScore">
+
+                    <button type="button" data-value="1">1</button>
+                    <button type="button" data-value="2">2</button>
+                    <button type="button" data-value="3">3</button>
+                    <button type="button" data-value="4">4</button>
+                    <button type="button" data-value="5">5</button>
+                    <button type="button" data-value="6">6</button>
+                    <button type="button" data-value="7">7</button>
+                    <button type="button" data-value="8">8</button>
+                    <button type="button" data-value="9">9</button>
+                    <button type="button" data-value="10">10</button>
+
+                </div>
+
+                <input type="hidden" id="health">
+
+                <p class="hint">
+                    1 = かなり悪い　／　10 = 最高
+                </p>
+
+            </div>
+
+
+            <!-- 気分 -->
+            <div class="field">
+
+                <label>
+                    気分
+                    <span class="required">1〜10</span>
+                </label>
+
+                <div class="score-grid" id="moodScore">
+
+                    <button type="button" data-value="1">1</button>
+                    <button type="button" data-value="2">2</button>
+                    <button type="button" data-value="3">3</button>
+                    <button type="button" data-value="4">4</button>
+                    <button type="button" data-value="5">5</button>
+                    <button type="button" data-value="6">6</button>
+                    <button type="button" data-value="7">7</button>
+                    <button type="button" data-value="8">8</button>
+                    <button type="button" data-value="9">9</button>
+                    <button type="button" data-value="10">10</button>
+
+                </div>
+
+                <input type="hidden" id="mood">
+
+                <p class="hint">
+                    1 = 最悪　／　10 = とても良い
+                </p>
+
+            </div>
+
         </section>
 
 
+        <!-- 今日やったこと -->
         <section class="card">
-            <h2>今日やったこと</h2>
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">02</span>
+                    <h2>今日やったこと</h2>
+                </div>
+
+                <p>
+                    今日やったこと、進んだこと、取り組んだこと。
+                </p>
+
+            </div>
 
             <textarea
                 id="done"
-                placeholder="今日やったことを書いてください">
-            </textarea>
+                placeholder="例：
+・mylifeの基盤を作った
+・ジムに行った
+・英語を30分勉強した"
+            ></textarea>
+
+            <p class="hint">
+                大きな成果でなくてもOK。小さなことも残します。
+            </p>
+
         </section>
 
 
+        <!-- お金 -->
         <section class="card">
-            <h2>お金</h2>
 
-            <label>
-                今日使った金額
-                <input type="number" id="money" min="0" placeholder="円">
-            </label>
+            <div class="section-heading">
 
-            <label>
-                大きな支出
-                <input type="text" id="bigExpense" placeholder="あれば入力">
-            </label>
+                <div>
+                    <span class="section-number">03</span>
+                    <h2>お金</h2>
+                </div>
+
+                <p>
+                    今日のお金の動きを記録します。
+                </p>
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="money">
+                    今日使った金額
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="money"
+                        min="0"
+                        inputmode="numeric"
+                        placeholder="例：3500"
+                    >
+
+                    <span>円</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="bigExpense">
+                    大きな支出
+                    <span class="optional">任意</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="bigExpense"
+                    placeholder="例：ジムの年会費 30,000円"
+                >
+
+            </div>
+
         </section>
 
 
+        <!-- 今日よかったこと -->
         <section class="card">
-            <h2>今日よかったこと</h2>
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">04</span>
+                    <h2>今日よかったこと</h2>
+                </div>
+
+                <p>
+                    今日「これはよかった」と思えること。
+                </p>
+
+            </div>
 
             <textarea
                 id="good"
-                placeholder="今日よかったこと">
-            </textarea>
+                placeholder="例：
+ちゃんと人生について考える時間を作れた。
+"
+            ></textarea>
+
+            <p class="hint">
+                小さなことでも大丈夫です。
+            </p>
+
         </section>
 
 
+        <!-- 今日の反省 -->
         <section class="card">
-            <h2>今日の反省</h2>
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">05</span>
+                    <h2>今日の反省</h2>
+                </div>
+
+                <p>
+                    今日気になったこと、改善したいこと。
+                </p>
+
+            </div>
 
             <textarea
                 id="reflection"
-                placeholder="今日の反省">
-            </textarea>
+                placeholder="例：
+午後3時に起きてしまった。
+明日は午前中に起きたい。
+"
+            ></textarea>
+
         </section>
 
 
+        <!-- 明日やること -->
         <section class="card">
-            <h2>明日やること</h2>
 
-            <textarea
-                id="tomorrow"
-                placeholder="明日やること">
-            </textarea>
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">06</span>
+                    <h2>明日やること</h2>
+                </div>
+
+                <p>
+                    明日やることを、優先度の高い順に。
+                </p>
+
+            </div>
+
+            <div class="task-input">
+
+                <span>01</span>
+
+                <input
+                    type="text"
+                    id="tomorrow1"
+                    placeholder="一番重要なこと"
+                >
+
+            </div>
+
+            <div class="task-input">
+
+                <span>02</span>
+
+                <input
+                    type="text"
+                    id="tomorrow2"
+                    placeholder="次にやること"
+                >
+
+            </div>
+
+            <div class="task-input">
+
+                <span>03</span>
+
+                <input
+                    type="text"
+                    id="tomorrow3"
+                    placeholder="余裕があればやること"
+                >
+
+            </div>
+
         </section>
 
 
+        <!-- AI -->
         <section class="card">
-            <h2>AIに相談したいこと</h2>
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">07</span>
+                    <h2>AIに相談したいこと</h2>
+                </div>
+
+                <p>
+                    今日考えたこと、悩んでいること、整理したいこと。
+                </p>
+
+            </div>
 
             <textarea
                 id="aiQuestion"
-                placeholder="AIに相談したいこと">
-            </textarea>
+                placeholder="例：
+最近、転職と事業のどちらに時間を使うべきか迷っている。
+"
+            ></textarea>
+
+            <p class="hint">
+                何もなければ空欄でOKです。
+            </p>
+
         </section>
 
 
-        <button id="saveButton">
-            保存する
-        </button>
+        <!-- Save -->
+        <section class="save-area">
 
-        <p id="status"></p>
+            <button id="saveButton" class="save-button">
+
+                <span class="save-icon">✓</span>
+
+                <span>
+                    今日の記録を保存
+                </span>
+
+            </button>
+
+            <p id="status" class="status"></p>
+
+        </section>
 
     </main>
 
+
+    <footer>
+
+        <p>
+            MY LIFE
+        </p>
+
+        <span>
+            Your life, documented.
+        </span>
+
+    </footer>
+
 </div>
+
 
 <script src="script.js"></script>
 

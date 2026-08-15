@@ -2,87 +2,587 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg: #f4f4f1;
+    --card: #ffffff;
+    --text: #171717;
+    --muted: #777;
+    --light: #999;
+    --border: #e5e5e2;
+    --accent: #111;
+    --success: #26734d;
+    --danger: #a33;
+}
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f5f5f5;
-    color: #222;
+    background: var(--bg);
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+
+    line-height: 1.6;
 }
+
+
+/* =========================
+   Layout
+========================= */
 
 .container {
     width: 100%;
-    max-width: 700px;
+    max-width: 720px;
+
     margin: 0 auto;
-    padding: 20px;
+
+    padding:
+        32px 20px
+        60px;
 }
 
-header {
+
+/* =========================
+   Header
+========================= */
+
+.hero {
+    padding:
+        10px 4px
+        34px;
+}
+
+.hero-label {
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    color: #888;
+
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: 42px;
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+}
+
+.hero #today {
+    margin:
+        12px 0 0;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #555;
+}
+
+.hero-description {
+    margin:
+        10px 0 0;
+
+    font-size: 13px;
+
+    color: #888;
+}
+
+
+/* =========================
+   Cards
+========================= */
+
+.card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    margin-bottom: 16px;
+
+    box-shadow:
+        0 2px 12px
+        rgba(0, 0, 0, 0.025);
+}
+
+
+/* =========================
+   Section Heading
+========================= */
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-number {
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #999;
+
+    letter-spacing: 0.08em;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-size: 20px;
+    line-height: 1.3;
+
+    letter-spacing: -0.02em;
+}
+
+.section-heading p {
+    margin:
+        7px 0 0 29px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   Fields
+========================= */
+
+.field {
     margin-bottom: 25px;
 }
 
-header h1 {
-    margin-bottom: 5px;
-}
-
-header p {
-    color: #777;
-}
-
-.card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.card h2 {
-    font-size: 18px;
-    margin-top: 0;
-    margin-bottom: 15px;
+.field:last-child {
+    margin-bottom: 0;
 }
 
 label {
-    display: block;
-    margin-bottom: 15px;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
 }
+
+.required,
+.optional {
+    font-size: 10px;
+
+    font-weight: 600;
+
+    color: #999;
+
+    background: #f3f3f1;
+
+    border-radius: 5px;
+
+    padding: 2px 6px;
+}
+
+
+/* =========================
+   Inputs
+========================= */
 
 input,
 textarea {
-    display: block;
     width: 100%;
-    margin-top: 7px;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    background: #fafaf9;
+
+    color: var(--text);
+
+    padding: 13px 14px;
+
     font-family: inherit;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s,
+        background 0.15s,
+        box-shadow 0.15s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #999;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 0, 0, 0.04);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa;
 }
 
 textarea {
-    min-height: 100px;
+    display: block;
+
+    min-height: 125px;
+
     resize: vertical;
+
+    line-height: 1.7;
 }
 
-button {
+
+/* =========================
+   Unit Input
+========================= */
+
+.input-with-unit {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.input-with-unit input {
+    flex: 1;
+}
+
+.input-with-unit span {
+    color: #666;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   Hint
+========================= */
+
+.hint {
+    margin:
+        7px 0 0;
+
+    color: var(--light);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   Score
+========================= */
+
+.score-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(10, 1fr);
+
+    gap: 5px;
+}
+
+.score-grid button {
     width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 10px;
-    background: #222;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
+
+    padding: 9px 0;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: #fafaf9;
+
+    color: #555;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
     cursor: pointer;
+
+    transition:
+        all 0.15s;
 }
 
-button:active {
+.score-grid button:hover {
+    border-color: #aaa;
+}
+
+.score-grid button.selected {
+    background: #111;
+
+    color: white;
+
+    border-color: #111;
+}
+
+
+/* =========================
+   Task List
+========================= */
+
+.task-input {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.task-input > span {
+    width: 24px;
+
+    color: #999;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.task-input input {
+    flex: 1;
+}
+
+
+/* =========================
+   Save
+========================= */
+
+.save-area {
+    padding:
+        8px 0
+        20px;
+}
+
+.save-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 17px;
+
+    background: #111;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        opacity 0.15s;
+}
+
+.save-button:hover {
+    opacity: 0.9;
+}
+
+.save-button:active {
     transform: scale(0.98);
 }
 
-#status {
+.save-button:disabled {
+    opacity: 0.5;
+
+    cursor: wait;
+}
+
+.save-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.15);
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   Status
+========================= */
+
+.status {
+    min-height: 24px;
+
+    margin:
+        12px 0 0;
+
     text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #777;
+}
+
+.status.success {
+    color: var(--success);
+}
+
+.status.error {
+    color: var(--danger);
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+    text-align: center;
+
+    padding:
+        25px 0
+        10px;
+
+    color: #aaa;
+}
+
+footer p {
+    margin: 0;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+footer span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding:
+            20px 14px
+            45px;
+    }
+
+    .hero {
+        padding:
+            10px 4px
+            26px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .card {
+        padding: 20px 17px;
+
+        border-radius: 16px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .section-heading p {
+        margin-left: 27px;
+    }
+
+    .score-grid {
+        gap: 4px;
+    }
+
+    .score-grid button {
+        padding: 9px 0;
+
+        font-size: 12px;
+    }
+
+    textarea {
+        min-height: 115px;
+    }
+}
+
+
+/* =========================
+   Very Small Phones
+========================= */
+
+@media (max-width: 380px) {
+
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card {
+        padding:
+            18px 14px;
+    }
+
+    .score-grid button {
+        font-size: 11px;
+    }
 }
