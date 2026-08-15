@@ -2,94 +2,170 @@
 <html lang="ja">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>MY LIFE</title>
 
-    <title>MY LIFE - 分析</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <!-- Plotly -->
-    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
 <div class="app">
 
-
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <!-- ==================== -->
+    <!-- HEADER -->
+    <!-- ==================== -->
 
     <header class="app-header">
 
         <div>
-
-            <p class="eyebrow">
-                MY LIFE
-            </p>
-
-            <h1>
-                7日間の分析
-            </h1>
-
+            <p class="eyebrow">MY LIFE</p>
+            <h1>今日の記録</h1>
         </div>
 
-
         <div class="today">
-
             <span id="today"></span>
-
         </div>
 
     </header>
 
 
-
-    <!-- =========================
-         MAIN
-    ========================== -->
+    <!-- ==================== -->
+    <!-- MAIN -->
+    <!-- ==================== -->
 
     <main class="main-content">
 
 
-        <!-- =========================
-             PERIOD
-        ========================== -->
+        <!-- 今日の状態 -->
 
-        <section class="card period-card">
+        <section class="card">
 
-            <p class="section-label">
-                PERIOD
+            <div class="section-header">
+
+                <div>
+                    <p class="section-label">TODAY</p>
+                    <h2>今日の状態</h2>
+                </div>
+
+            </div>
+
+
+            <div class="metrics">
+
+                <div class="metric">
+
+                    <label for="sleep">
+                        睡眠時間
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="sleep"
+                            min="0"
+                            max="24"
+                            step="0.5"
+                            placeholder="7"
+                        >
+
+                        <span>時間</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <label for="health">
+                        体調
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="health"
+                            min="1"
+                            max="10"
+                            placeholder="8"
+                        >
+
+                        <span>/10</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <label for="mood">
+                        気分
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="mood"
+                            min="1"
+                            max="10"
+                            placeholder="7"
+                        >
+
+                        <span>/10</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 今日やったこと -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-label">
+                        ACTION
+                    </p>
+
+                    <h2>今日やったこと</h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                今日取り組んだこと、できたことを書きます。
             </p>
 
-            <h2 id="period">
-                読み込み中...
-            </h2>
 
-            <p
-                id="recordSummary"
-                class="description"
-            ></p>
+            <textarea
+                id="done"
+                placeholder="例：
+・仕事をした
+・ジムに行った
+・人生について考えた"
+            ></textarea>
 
         </section>
 
 
-
-        <!-- =========================
-             SUMMARY
-        ========================== -->
+        <!-- お金 -->
 
         <section class="card">
 
@@ -98,210 +174,56 @@
                 <div>
 
                     <p class="section-label">
-                        SUMMARY
+                        MONEY
                     </p>
 
-                    <h2>
-                        7日間のサマリー
-                    </h2>
+                    <h2>お金</h2>
 
                 </div>
 
             </div>
 
 
-            <div class="summary-grid">
+            <div class="form-group">
 
+                <label for="money">
+                    今日使った金額
+                </label>
 
-                <div class="summary-item">
+                <div class="input-with-unit">
 
-                    <span class="summary-label">
-                        記録日数
-                    </span>
+                    <input
+                        type="number"
+                        id="money"
+                        min="0"
+                        placeholder="0"
+                    >
 
-                    <div class="summary-value">
-
-                        <strong id="recordCount">
-                            -
-                        </strong>
-
-                        <span>
-                            / 7日
-                        </span>
-
-                    </div>
+                    <span>円</span>
 
                 </div>
 
-
-                <div class="summary-item">
-
-                    <span class="summary-label">
-                        平均睡眠
-                    </span>
-
-                    <div class="summary-value">
-
-                        <strong id="averageSleep">
-                            -
-                        </strong>
-
-                        <span>
-                            時間
-                        </span>
-
-                    </div>
-
-                </div>
+            </div>
 
 
-                <div class="summary-item">
+            <div class="form-group">
 
-                    <span class="summary-label">
-                        平均体調
-                    </span>
+                <label for="bigExpense">
+                    大きな支出
+                </label>
 
-                    <div class="summary-value">
-
-                        <strong id="averageHealth">
-                            -
-                        </strong>
-
-                        <span>
-                            /10
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="summary-item">
-
-                    <span class="summary-label">
-                        平均気分
-                    </span>
-
-                    <div class="summary-value">
-
-                        <strong id="averageMood">
-                            -
-                        </strong>
-
-                        <span>
-                            /10
-                        </span>
-
-                    </div>
-
-                </div>
-
+                <input
+                    type="text"
+                    id="bigExpense"
+                    placeholder="なければ空欄でOK"
+                >
 
             </div>
 
         </section>
 
 
-
-        <!-- =========================
-             MOOD
-        ========================== -->
-
-        <section class="card">
-
-            <div class="section-header">
-
-                <div>
-
-                    <p class="section-label">
-                        MOOD
-                    </p>
-
-                    <h2>
-                        気分の推移
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="moodChart"
-                class="plotly-chart"
-            ></div>
-
-        </section>
-
-
-
-        <!-- =========================
-             SLEEP
-        ========================== -->
-
-        <section class="card">
-
-            <div class="section-header">
-
-                <div>
-
-                    <p class="section-label">
-                        SLEEP
-                    </p>
-
-                    <h2>
-                        睡眠時間の推移
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="sleepChart"
-                class="plotly-chart"
-            ></div>
-
-        </section>
-
-
-
-        <!-- =========================
-             TRENDS
-        ========================== -->
-
-        <section class="card">
-
-            <div class="section-header">
-
-                <div>
-
-                    <p class="section-label">
-                        TRENDS
-                    </p>
-
-                    <h2>
-                        最近の傾向
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="trendList"
-                class="trend-list"
-            ></div>
-
-        </section>
-
-
-
-        <!-- =========================
-             GOOD
-        ========================== -->
+        <!-- よかったこと -->
 
         <section class="card">
 
@@ -313,27 +235,28 @@
                         GOOD
                     </p>
 
-                    <h2>
-                        最近よかったこと
-                    </h2>
+                    <h2>今日よかったこと</h2>
 
                 </div>
 
             </div>
 
 
-            <div
-                id="goodList"
-                class="text-list"
-            ></div>
+            <p class="description">
+                小さなことでもOKです。
+            </p>
+
+
+            <textarea
+                id="good"
+                placeholder="例：
+ちゃんと人生について考えられた"
+            ></textarea>
 
         </section>
 
 
-
-        <!-- =========================
-             REFLECTION
-        ========================== -->
+        <!-- 反省 -->
 
         <section class="card">
 
@@ -345,27 +268,28 @@
                         REFLECTION
                     </p>
 
-                    <h2>
-                        最近の反省・気になること
-                    </h2>
+                    <h2>今日の反省</h2>
 
                 </div>
 
             </div>
 
 
-            <div
-                id="reflectionList"
-                class="text-list"
-            ></div>
+            <p class="description">
+                明日以降に改善したいことを書きます。
+            </p>
+
+
+            <textarea
+                id="reflection"
+                placeholder="例：
+午後3時に起きてしまった"
+            ></textarea>
 
         </section>
 
 
-
-        <!-- =========================
-             RECORDS
-        ========================== -->
+        <!-- 明日 -->
 
         <section class="card">
 
@@ -374,78 +298,111 @@
                 <div>
 
                     <p class="section-label">
-                        RECORDS
+                        TOMORROW
                     </p>
 
-                    <h2>
-                        7日間の記録
-                    </h2>
+                    <h2>明日やること</h2>
 
                 </div>
 
             </div>
 
 
-            <div
-                id="recordList"
-                class="record-list"
-            ></div>
+            <p class="description">
+                明日やることを優先順位順に書きます。
+            </p>
+
+
+            <textarea
+                id="tomorrow"
+                placeholder="例：
+1. 掃除
+2. ジム
+3. 仕事"
+            ></textarea>
 
         </section>
 
 
+        <!-- AI -->
 
-        <!-- =========================
-             STATUS
-        ========================== -->
+        <section class="card ai-card">
 
-        <p
-            id="status"
-            class="status"
-        >
-            読み込み中...
-        </p>
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-label">
+                        AI
+                    </p>
+
+                    <h2>AIに相談したいこと</h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                今日感じたことや、考えたいことを自由に書いてください。
+            </p>
+
+
+            <textarea
+                id="aiQuestion"
+                placeholder="例：
+最近、人生の方向性について迷っている。"
+            ></textarea>
+
+        </section>
+
+
+        <!-- 保存 -->
+
+        <section class="save-section">
+
+            <button
+                id="saveButton"
+                class="save-button"
+            >
+                今日の記録を保存
+            </button>
+
+            <p
+                id="status"
+                class="status"
+            ></p>
+
+        </section>
 
 
     </main>
 
 
-
-    <!-- =========================
-         BOTTOM NAV
-    ========================== -->
+    <!-- ==================== -->
+    <!-- BOTTOM NAV -->
+    <!-- ==================== -->
 
     <nav class="bottom-nav">
 
-
         <a
             href="index.html"
-            class="nav-item"
+            class="nav-item active"
         >
 
-            <span class="nav-icon">
-                ＋
-            </span>
-
-            <span>
-                今日
-            </span>
+            <span class="nav-icon">＋</span>
+            <span>今日</span>
 
         </a>
 
 
         <a
             href="analysis.html"
-            class="nav-item active"
+            class="nav-item"
         >
 
-            <span class="nav-icon">
-                ◌
-            </span>
-
-            <span>
-                分析
-            </span>
+            <span class="nav-icon">◌</span>
+            <span>分析</span>
 
         </a>
 
@@ -455,24 +412,17 @@
             class="nav-item"
         >
 
-            <span class="nav-icon">
-                ✦
-            </span>
-
-            <span>
-                AI
-            </span>
+            <span class="nav-icon">✦</span>
+            <span>AI</span>
 
         </a>
 
-
     </nav>
-
 
 </div>
 
 
-<script src="analysis.js"></script>
+<script src="script.js"></script>
 
 </body>
 
